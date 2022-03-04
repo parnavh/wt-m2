@@ -21,6 +21,12 @@ eventEmitter.once('eventName', function () {
 // Register a listener for event 'eventName'
 eventEmitter.on('eventName', callback_function)
 
+const registeredEvents = eventEmitter.rawListeners("eventName") // returns an array of all the listeners for the event
+console.log(registeredEvents);
+
+const listenersCount = eventEmitter.listenerCount("eventName") // returns the number of listeners for the event
+console.log("count:", listenersCount);
+
 // emit the event 4 times
 eventEmitter.emit('eventName')
 eventEmitter.emit('eventName')
